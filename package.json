@@ -1,0 +1,55 @@
+{
+  "name": "@userlog/node",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "private": false,
+  "description": "UserLog client for Node.js applications",
+  "author": "Michael <michael@8byte.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/getuserlog/node/issues"
+  },
+  "homepage": "https://getuserlog.com",
+  "keywords": [
+    "userlog",
+    "node",
+    "logging",
+    "analytics",
+    "insights",
+    "monitoring",
+    "saas"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "node": "./dist/index.js",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "node": "./dist/index.cjs",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch --clean=false",
+    "publish:prod": "npm run build && npm publish",
+    "publish:beta": "npm run build && npm publish --tag beta",
+    "publish:dryrun": "npm run build && npm publish --dry-run"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "tsup": "^7.2.0"
+  }
+}
